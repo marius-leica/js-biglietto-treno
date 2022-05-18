@@ -1,5 +1,20 @@
-const kmPercorsi = prompt("Inserisci il numero di km percorsi");
-const etaUtente = prompt("Inserisci la tua età");
+let kmPercorsi = prompt("Inserisci il numero di km da percorrere");
+if (isNaN(kmPercorsi) || kmPercorsi < 1 || kmPercorsi > 1999) {
+  kmPercorsi = prompt(
+    "Per favore inserisci il numero di km da percorere in un formato numerico valido"
+  );
+} else if (kmPercorsi.length == "") {
+  kmPercorsi = prompt("Questo campo non può essere vuoto");
+}
+
+let etaUtente = prompt("Inserisci la tua età");
+if (isNaN(etaUtente) || etaUtente < 1 || etaUtente > 122) {
+  etaUtente = prompt(
+    "Per favore inserisci la tua età in un formato numerico valido"
+  );
+} else if (etaUtente.length == "") {
+  etaUtente = prompt("Questo campo non può essere vuoto");
+}
 
 const prezzoBiglietto = kmPercorsi * 0.21;
 const scontoMinorenni = prezzoBiglietto - prezzoBiglietto * 0.2;
@@ -8,8 +23,8 @@ let prezzoM;
 let prezzoS;
 let prezzoN;
 
-const eta = document.getElementById("eta");
-const km = document.getElementById("km");
+let eta = document.getElementById("eta");
+let km = document.getElementById("km");
 const prezzo = document.getElementById("prezzo");
 km.innerHTML = "La distanza da percorrere è di" + " " + kmPercorsi + " km";
 
